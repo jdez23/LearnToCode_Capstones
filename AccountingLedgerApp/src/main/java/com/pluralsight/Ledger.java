@@ -63,18 +63,84 @@ public class Ledger {
 
 
     public ArrayList<Transaction> filterDeposits() {
-        // Will implement later in Phase 6
-        return null;
+        ArrayList<Transaction> results = new ArrayList<>();
+        for (Transaction t : transactions) {
+            if (t.getAmount() > 0) {
+                results.add(t);
+            }
+        }
+        return results;
     }
 
     public ArrayList<Transaction> filterPayments() {
-        // Will implement later in Phase 6
-        return null;
+        ArrayList<Transaction> results = new ArrayList<>();
+        for (Transaction t : transactions) {
+            if (t.getAmount() < 0) {
+                results.add(t);
+            }
+        }
+        return results;
     }
 
     public ArrayList<Transaction> filterByVendor(String vendor) {
-        // Will implement later in Phase 6
-        return null;
+        ArrayList<Transaction> results = new ArrayList<>();
+        for (Transaction t : transactions) {
+            if (t.getVendor().equalsIgnoreCase(vendor)) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<Transaction> filterMonthToDate() {
+        ArrayList<Transaction> results = new ArrayList<>();
+        LocalDate now = LocalDate.now();
+
+        for (Transaction t : transactions) {
+            LocalDate date = t.getDateTime().toLocalDate();
+            if (date.getMonth() == now.getMonth() && date.getYear() == now.getYear()) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<Transaction> filterPreviousMonth() {
+        ArrayList<Transaction> results = new ArrayList<>();
+        LocalDate now = LocalDate.now();
+        LocalDate previousMonth = now.minusMonths(1);
+
+        for (Transaction t : transactions) {
+            LocalDate date = t.getDateTime().toLocalDate();
+            if (date.getMonth() == previousMonth.getMonth() && date.getYear() == previousMonth.getYear()) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<Transaction> filterYearToDate() {
+        ArrayList<Transaction> results = new ArrayList<>();
+        int currentYear = LocalDate.now().getYear();
+
+        for (Transaction t : transactions) {
+            if (t.getDateTime().getYear() == currentYear) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<Transaction> filterPreviousYear() {
+        ArrayList<Transaction> results = new ArrayList<>();
+        int previousYear = LocalDate.now().getYear() - 1;
+
+        for (Transaction t : transactions) {
+            if (t.getDateTime().getYear() == previousYear) {
+                results.add(t);
+            }
+        }
+        return results;
     }
 
     public ArrayList<Transaction> getTransactions() {
