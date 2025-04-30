@@ -13,7 +13,7 @@ public class Main {
 
         while (true) {
             showHomeScreen();
-            String choice = scanner.nextLine().toUpperCase();
+            String choice = scanner.nextLine().trim().toUpperCase();
 
             if (choice.equals("D")) {
                 addDepositScreen();
@@ -48,7 +48,8 @@ public class Main {
         String vendor = scanner.nextLine();
 
         System.out.println("\n Enter amount (00.00): ");
-        double amount = scanner.nextDouble();
+        String amountInput = scanner.nextLine();
+        double amount = Double.parseDouble(amountInput);
 
         Transaction deposit = new Transaction(LocalDateTime.now(), description, vendor, amount);
         ledger.addTransaction(deposit);
@@ -88,7 +89,7 @@ public class Main {
             System.out.println("H) Home");
             System.out.print("> ");
 
-            String choice = scanner.nextLine().toUpperCase();
+            String choice = scanner.nextLine().trim().toUpperCase();
 
             switch (choice) {
                 case "A":

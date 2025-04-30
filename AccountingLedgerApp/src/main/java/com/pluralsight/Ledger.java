@@ -41,7 +41,6 @@ public class Ledger {
         }
     }
 
-
     public void saveTransactionsToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Transaction t : transactions) {
@@ -60,7 +59,6 @@ public class Ledger {
             System.out.println("Error saving transactions: " + e.getMessage());
         }
     }
-
 
     public ArrayList<Transaction> filterDeposits() {
         ArrayList<Transaction> results = new ArrayList<>();
