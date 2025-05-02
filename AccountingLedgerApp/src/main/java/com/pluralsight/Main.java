@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,21 +12,27 @@ public class Main {
     public static void main(String[] args) {
         ledger.loadTransactionsFromFile("transactions.csv");
 
+        label:
         while (true) {
             showHomeScreen();
             String choice = scanner.nextLine().trim().toUpperCase();
 
-            if (choice.equals("D")) {
-                addDepositScreen();
-            } else if (choice.equals("P")) {
-                makePaymentScreen();
-            } else if (choice.equals("L")) {
-                showLedgerScreen();
-            } else if (choice.equals("X")) {
-                System.out.println("Exiting...");
-                break;
-            } else {
-                System.out.println("Invalid option. Try again!");
+            switch (choice) {
+                case "D":
+                    addDepositScreen();
+                    break;
+                case "P":
+                    makePaymentScreen();
+                    break;
+                case "L":
+                    showLedgerScreen();
+                    break;
+                case "X":
+                    System.out.println("Exiting...");
+                    break label;
+                default:
+                    System.out.println("Invalid option. Try again!");
+                    break;
             }
         }
     }
@@ -137,6 +144,7 @@ public class Main {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
+            System.out.println("6) Custom Search");
             System.out.println("0) Back");
             System.out.print("> ");
 
@@ -160,6 +168,9 @@ public class Main {
                     String vendor = scanner.nextLine();
                     displayTransactions(ledger.filterByVendor(vendor));
                     break;
+                case "6":
+                    customSearchScreen();
+                    break;
                 case "0":
                     return;
                 default:
@@ -167,5 +178,33 @@ public class Main {
             }
         }
     }
+
+    public static void customSearchScreen() {
+        System.out.println("\n--- Custom Search ---");
+
+        System.out.print("Start date (yyyy-MM-dd) or leave blank: ");
+        String startDateInput = scanner.nextLine();
+
+        System.out.print("End date (yyyy-MM-dd) or leave blank: ");
+        String endDateInput = scanner.nextLine();
+
+        System.out.print("Description keyword (optional): ");
+        String description = scanner.nextLine().trim();
+
+        System.out.print("Vendor name (optional): ");
+        String vendor = scanner.nextLine().trim();
+
+        System.out.print("Amount (exact match, optional): ");
+        String amountInput = scanner.nextLine();
+
+        // Convert inputs
+        LocalDate startDate = startDateInput.isEmpty() ? null : LocalDate.parse(startDateInput);
+        LocalDate endDate = endDateInput.isEmpty() ? null : LocalDate.parse(endDateInput);
+        Double amount = amountInput.isEmpty() ? null : Double.parseDouble(amountInput);
+
+        ArrayList<Transaction> results = ledger.customSearch(startDate, endDate, description, vendor, amount);
+        displayTransactions(results);
+    }
+
 
 }

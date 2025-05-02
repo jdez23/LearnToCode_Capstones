@@ -141,6 +141,41 @@ public class Ledger {
         return results;
     }
 
+    public ArrayList<Transaction> customSearch(LocalDate startDate, LocalDate endDate, String description, String vendor, Double amount) {
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            LocalDate date = t.getDateTime().toLocalDate();
+
+            boolean match = true;
+
+            if (startDate != null && date.isBefore(startDate)) {
+                match = false;
+            }
+            if (endDate != null && date.isAfter(endDate)) {
+                match = false;
+            }
+            if (description != null && !description.isEmpty() &&
+                    !t.getDescription().toLowerCase().contains(description.toLowerCase())) {
+                match = false;
+            }
+            if (vendor != null && !vendor.isEmpty() &&
+                    !t.getVendor().toLowerCase().contains(vendor.toLowerCase())) {
+                match = false;
+            }
+            if (amount != null && t.getAmount() != amount) {
+                match = false;
+            }
+
+            if (match) {
+                results.add(t);
+            }
+        }
+
+        return results;
+    }
+
+
     public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
