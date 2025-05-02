@@ -175,7 +175,6 @@ public class Ledger {
         return results;
     }
 
-
     public ArrayList<Transaction> getTransactions() {
         return transactions;
     }

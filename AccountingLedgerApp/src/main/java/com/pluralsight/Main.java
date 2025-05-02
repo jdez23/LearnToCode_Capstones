@@ -12,8 +12,9 @@ public class Main {
     public static void main(String[] args) {
         ledger.loadTransactionsFromFile("transactions.csv");
 
-        label:
-        while (true) {
+        boolean running = true;
+
+        while (running) {
             showHomeScreen();
             String choice = scanner.nextLine().trim().toUpperCase();
 
@@ -29,7 +30,8 @@ public class Main {
                     break;
                 case "X":
                     System.out.println("Exiting...");
-                    break label;
+                    running = false;
+                    break;
                 default:
                     System.out.println("Invalid option. Try again!");
                     break;
@@ -38,6 +40,7 @@ public class Main {
     }
 
     public static void showHomeScreen() {
+        System.out.println("\nWelcome in! This is a Ledger App!");
         System.out.println("\nSelect one of the following options:");
         System.out.println("D) Add Deposit");
         System.out.println("P) Make Payment (Debit)");
