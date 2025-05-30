@@ -18,8 +18,19 @@ public class SandwichBuilder {
         System.out.print("Select bread (white, wheat, rye, wrap): ");
         String bread = scanner.nextLine().trim();
 
-        System.out.println("Would you like premium toppings? (Y/N): ");
-        boolean premiumToppings = scanner.nextLine().trim().equalsIgnoreCase("Y");
+        // Ask for meat
+        System.out.println("Select meat or leave blank (Steak, Ham, Salami, Roast Beef, Chicken, Bacon)");
+        String meat = scanner.nextLine().trim();
+
+        // Ask for cheese
+        System.out.println("Select cheese or leave blank (American, Provolone, Cheddar, Swiss)");
+        String cheese = scanner.nextLine().trim();
+
+        System.out.println("Would you like extra meat? (Y/N): ");
+        boolean extraMeat = scanner.nextLine().trim().equalsIgnoreCase("Y");
+
+        System.out.println("Would you like extra cheese? (Y/N): ");
+        boolean extraCheese = scanner.nextLine().trim().equalsIgnoreCase("Y");
 
         List<String> sauces = new ArrayList<>();
         System.out.println("Enter sauces (blank to finish):");
@@ -33,6 +44,6 @@ public class SandwichBuilder {
         System.out.print("Toast sandwich? (Y/N): ");
         boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("Y");
 
-        return new Sandwich(size, bread, premiumToppings, sauces, toasted);
+        return new Sandwich(size, bread, meat, cheese, extraMeat, extraCheese, sauces, toasted);
     }
 }

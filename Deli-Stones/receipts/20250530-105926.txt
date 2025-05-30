@@ -1,0 +1,16 @@
+Order#: 20250530-105834
+
+Order placed at 2025-05-30 10:58:34
+------------------------------
+4" rye toasted sandwich
+- Meat: bacon (extra)
+- Cheese: swiss (extra)
+- Sauces: [bbq]
+- Base Price: $5.50
+- Premium Topping Charge: $1.00
+- Extra Meat Charge: $0.50
+- Extra Cheese Charge: $0.30
+=> Total: $7.30
+Medium sprite drink – $2.50
+------------------------------
+Total: $9.80

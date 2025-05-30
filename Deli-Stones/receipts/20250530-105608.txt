@@ -1,0 +1,15 @@
+Order#: 20250530-105520
+
+Order placed at 2025-05-30 10:55:20
+------------------------------
+8" wheat toasted sandwich
+- Meat: salami
+- Cheese: swiss (extra)
+- Sauces: [bbq]
+- Base Price: $7.00
+- Premium Topping Charge: $2.00
+- Extra Meat Charge: $0.00
+- Extra Cheese Charge: $0.60
+=> Total: $9.60
+------------------------------
+Total: $9.60

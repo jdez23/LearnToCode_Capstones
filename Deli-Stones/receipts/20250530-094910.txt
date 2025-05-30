@@ -1,0 +1,7 @@
+Order#: 20250530-094823
+
+Order placed at 2025-05-30 09:48:23
+------------------------------
+8" wheat toasted sandwich (premium: true; sauces: []) [toasted]
+------------------------------
+Total: $9.00
