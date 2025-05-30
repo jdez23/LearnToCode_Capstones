@@ -1,0 +1,9 @@
+Order#: 20250530-093504
+
+Order placed at 2025-05-30 09:35:04
+------------------------------
+12" white toasted sandwich (premium: true; sauces: [BBQ]) [toasted]
+Small coke drink – $2.00
+Chips – $1.50
+------------------------------
+Total: $15.00

@@ -1,6 +1,6 @@
-package com.pluralsight.io;
+package com.pluralsight.receipt;
 
-import com.pluralsight.order.Order;
+import com.pluralsight.model.Order;
 
 public interface ReceiptWriter {
     void writeReceipt(Order order);
