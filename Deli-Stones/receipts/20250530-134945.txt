@@ -1,0 +1,17 @@
+Order#: 20250530-134739
+
+Order placed at 2025-05-30 13:47:39
+------------------------------
+8" rye toasted sandwich
+- Meat: steak
+- Cheese: swiss (extra)
+- Sauces: [bbq]
+- Base Price: $7.00
+- Premium Topping Charge: $2.00
+- Extra Meat Charge: $0.00
+- Extra Cheese Charge: $0.60
+=> Total: $9.60
+Medium Coke drink – $2.50
+Chips – $1.50
+------------------------------
+Total: $13.60
